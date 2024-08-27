@@ -15,7 +15,7 @@ form.addEventListener('submit', async (event) => {
   }
 
   try {
-    const response = await fetch('http://localhost/super-reminder/user/rv', {
+    const response = await fetch('http://localhost/it-expect/user/rv', {
         method: 'POST',
         body: new FormData(form)
 });
@@ -26,7 +26,7 @@ form.addEventListener('submit', async (event) => {
         const message = data.message;
     if (data.success) {
         Message.style.color = 'green';
-        window.location = "http://localhost/super-reminder/user/l"; // If the subscription is done, we're being redirected to the login page
+        window.location = "http://localhost/it-expect/user/l"; // If the subscription is done, we're being redirected to the login page
     } else {
         Message.style.color = 'red';
     }

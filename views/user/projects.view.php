@@ -14,11 +14,11 @@
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/super-reminder/Webfiles/CSS/style.css">
+    <link rel="stylesheet" href="/it-expect/Webfiles/CSS/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
-    <script defer src="/super-reminder/Js/Project.js"></script>
+    <script defer src="/it-expect/Js/Project.js"></script>
     <title>Compte de <?= $_SESSION['login'] ?></title>
 </head>
 <body>

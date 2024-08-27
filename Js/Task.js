@@ -17,7 +17,7 @@ addTaskMessage.style.color = 'red'
 
 async function loadToDoTasks (){
   try {
-    const response = await fetch(`http://localhost/super-reminder/task/gtt/${idProject}`);
+    const response = await fetch(`http://localhost/it-expect/task/gtt/${idProject}`);
     if (!response.ok) {
       throw new Error('Network response was not OK');
     }
@@ -53,7 +53,7 @@ async function loadToDoTasks (){
     
         const formProgress = document.createElement("form")
         formProgress.id = "progress-task-form"
-        formProgress.action = `/super-reminder/task/ap/${data[i].id}`
+        formProgress.action = `/it-expect/task/ap/${data[i].id}`
         formProgress.appendChild(blueButton);
         formProgress.appendChild(blueButtonText);
 
@@ -63,7 +63,7 @@ async function loadToDoTasks (){
             clearErrors(); // On vide la div qui affiche les messages
           
             try { 
-                const response = await fetch(`http://localhost/super-reminder/task/ap/${data[i].id}`, {
+                const response = await fetch(`http://localhost/it-expect/task/ap/${data[i].id}`, {
                   method: 'POST',
                   body: new FormData(formProgress)
                 });
@@ -104,7 +104,7 @@ async function loadToDoTasks (){
     
         const formDone = document.createElement("form")
         formDone.id = "done-task-form"
-        formDone.action = `/super-reminder/task/ad/${data[i].id}`
+        formDone.action = `/it-expect/task/ad/${data[i].id}`
         formDone.appendChild(greenButton);
         formDone.appendChild(greenButtonText);
 
@@ -114,7 +114,7 @@ async function loadToDoTasks (){
             clearErrors(); // On vide la div qui affiche les messages
           
             try { 
-                const response = await fetch(`http://localhost/super-reminder/task/ad/${data[i].id}`, {
+                const response = await fetch(`http://localhost/it-expect/task/ad/${data[i].id}`, {
                   method: 'POST',
                   body: new FormData(formDone)
                 });
@@ -152,7 +152,7 @@ async function loadToDoTasks (){
         redButtonText.textContent = "Supprimer";
         
         const formDelete = document.createElement("form")
-        formDelete.action = `/super-reminder/task/d/${data[i].id}`
+        formDelete.action = `/it-expect/task/d/${data[i].id}`
         formDelete.id = "delete-task-form"
         formDelete.appendChild(redButton);
         formDelete.appendChild(redButtonText);
@@ -163,7 +163,7 @@ async function loadToDoTasks (){
             clearErrors(); // On vide la div qui affiche les messages
           
             try { 
-                const response = await fetch(`http://localhost/super-reminder/task/d/${data[i].id}`, {
+                const response = await fetch(`http://localhost/it-expect/task/d/${data[i].id}`, {
                   method: 'POST',
                   body: new FormData(formDelete)
                 });
@@ -217,7 +217,7 @@ async function loadToDoTasks (){
 
 async function loadProgressTasks (){ 
   try {
-    const response = await fetch(`http://localhost/super-reminder/task/gpt/${idProject}`);
+    const response = await fetch(`http://localhost/it-expect/task/gpt/${idProject}`);
     if (!response.ok) {
       throw new Error('Network response was not OK');
     }
@@ -253,7 +253,7 @@ async function loadProgressTasks (){
         greenButtonText.textContent = "Terminer";
     
         const formDone = document.createElement("form")
-        formDone.action = `/super-reminder/task/ad/${data[i].id}`
+        formDone.action = `/it-expect/task/ad/${data[i].id}`
         formDone.id = "done-task-form"
         formDone.appendChild(greenButton);
         formDone.appendChild(greenButtonText);
@@ -264,7 +264,7 @@ async function loadProgressTasks (){
             clearErrors(); // On vide la div qui affiche les messages
           
             try { 
-                const response = await fetch(`http://localhost/super-reminder/task/ad/${data[i].id}`, {
+                const response = await fetch(`http://localhost/it-expect/task/ad/${data[i].id}`, {
                   method: 'POST',
                   body: new FormData(formDone)
                 });
@@ -302,7 +302,7 @@ async function loadProgressTasks (){
         redButtonText.textContent = "Supprimer";
         
         const formDelete = document.createElement("form")
-        formDelete.action = `/super-reminder/task/d/${data[i].id}`
+        formDelete.action = `/it-expect/task/d/${data[i].id}`
         formDelete.id = "delete-task-form"
         formDelete.appendChild(redButton);
         formDelete.appendChild(redButtonText);
@@ -313,7 +313,7 @@ async function loadProgressTasks (){
             clearErrors(); // On vide la div qui affiche les messages
           
             try { 
-                const response = await fetch(`http://localhost/super-reminder/task/d/${data[i].id}`, {
+                const response = await fetch(`http://localhost/it-expect/task/d/${data[i].id}`, {
                   method: 'POST',
                   body: new FormData(formDelete)
                 });
@@ -366,7 +366,7 @@ async function loadProgressTasks (){
 
 async function loadDoneTasks (){ 
   try { 
-    const response = await fetch(`http://localhost/super-reminder/task/gdt/${idProject}`, {
+    const response = await fetch(`http://localhost/it-expect/task/gdt/${idProject}`, {
   });
     if (!response.ok) {
       throw new Error('Network response was not OK');
@@ -402,7 +402,7 @@ async function loadDoneTasks (){
         redButtonText.textContent = "Supprimer";
         
         const formDelete = document.createElement("form")
-        formDelete.action = `/super-reminder/task/d/${data[i].id}`
+        formDelete.action = `/it-expect/task/d/${data[i].id}`
         formDelete.id = "delete-task-form"
         formDelete.appendChild(redButton);
         formDelete.appendChild(redButtonText);
@@ -413,7 +413,7 @@ async function loadDoneTasks (){
             clearErrors(); // On vide la div qui affiche les messages
           
             try { 
-                const response = await fetch(`http://localhost/super-reminder/task/d/${data[i].id}`, {
+                const response = await fetch(`http://localhost/it-expect/task/d/${data[i].id}`, {
                   method: 'POST',
                   body: new FormData(formDelete)
                 });
@@ -476,7 +476,7 @@ addTaskForm.addEventListener('submit', async (event) => {
   }
 
   try { 
-      const response = await fetch('http://localhost/super-reminder/task/ta', {
+      const response = await fetch('http://localhost/it-expect/task/ta', {
         method: 'POST',
         body: new FormData(addTaskForm)
       });

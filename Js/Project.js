@@ -9,7 +9,7 @@ const ProjectMessage = document.getElementById('subtitle');
 
 async function loadProjects (){ 
   try { 
-    const response = await fetch('http://localhost/super-reminder/project/gp', {
+    const response = await fetch('http://localhost/it-expect/project/gp', {
   });
     if (!response.ok) {
       throw new Error('Network response was not OK');
@@ -44,12 +44,12 @@ async function loadProjects (){
         const deleteFormBtn = document.createElement("button");
         const deleteProjectForm = document.createElement("form")
         
-        displayLink.href = `/super-reminder/project/v/${project.id}`;
+        displayLink.href = `/it-expect/project/v/${project.id}`;
         displayLink.textContent = 'Voir';
         displayLinkTd.appendChild(displayLink);
 
         deleteProjectForm.id = "delete-project-form"
-        deleteProjectForm.action = `/super-reminder/project/d/${project.id}`;
+        deleteProjectForm.action = `/it-expect/project/d/${project.id}`;
         deleteFormBtn.textContent = 'Supprimer';
         deleteProjectForm.appendChild(deleteFormBtn);
         deleteLinkTd.appendChild(deleteProjectForm);
@@ -60,7 +60,7 @@ async function loadProjects (){
           event.preventDefault()
 
           try { 
-            const response = await fetch(`http://localhost/super-reminder/project/d/${project.id}`, {
+            const response = await fetch(`http://localhost/it-expect/project/d/${project.id}`, {
               method: 'POST',
               body: new FormData(deleteProjectForm)
             });
@@ -125,7 +125,7 @@ ProjectForm.addEventListener('submit', async (event) => {
     }
   
     try { 
-        const response = await fetch('http://localhost/super-reminder/project/pa', {
+        const response = await fetch('http://localhost/it-expect/project/pa', {
           method: 'POST',
           body: new FormData(ProjectForm)
         });
