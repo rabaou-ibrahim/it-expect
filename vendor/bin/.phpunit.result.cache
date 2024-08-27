@@ -1,0 +1,1 @@
+{"version":1,"defects":{"SignupTest::testIsNotTakenLogin":7,"SignupTest::testIsTakenLogin":7},"times":{"SignupTest::testIsNotTakenLogin":0.008,"SignupTest::testIsTakenLogin":0}}
