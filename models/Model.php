@@ -4,7 +4,7 @@ abstract class Model{
     private static $pdo;
 
     private static function setDb(){
-        self::$pdo = new PDO("mysql:host=localhost; dbname=super-reminder; charset=utf8", "root", "");
+        self::$pdo = new PDO("mysql:host=localhost; dbname=super-reminder; charset=utf8", "root", "toto");
         self::$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
     }
 

@@ -35,8 +35,6 @@ try{
                         $userController->logInValidation();
                     } else if($url[1] === "p"){
                         $userController->displayProjects();
-                    } else if($url[1] === "ev"){
-                        $userController->editUserValidation();
                     } else if($url[1] === "lo"){
                         $userController->logOut();
                     }
