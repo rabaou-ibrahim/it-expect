@@ -38,6 +38,6 @@ class SignupTest extends TestCase
         $_POST['lastname'] = 'eau';
         $_POST['password'] = 'bobo';
 
-        assertSame("Inscription réusse !",  self::$cntrl->registerValidation()['message'], 'inscription NOK');
+        assertSame(true,  self::$cntrl->registerValidation(), 'inscription NOK');
     }
 }

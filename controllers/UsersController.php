@@ -46,17 +46,18 @@ class UsersController
             $responseData = [
                 'success' => true,
                 'message' => "Inscription réussie !",
-                'response' => $response
+                'response' => $response['login']
             ];
         } else {
             $responseData = [
                 'success' => false,
-                'message' => $response['message']
+                'message' => $response['message'],
+                'response' => $response['login']
             ];
         }
         header('Content-Type: application/json');
         echo json_encode($responseData);
-        return $responseData;
+        return $responseData['success'];
     }
 
     // Function that verifies if the user exists in our database
@@ -93,7 +94,8 @@ class UsersController
 
         $responseData = [
             'success' => !$isLoginTaken,
-            'message' => $RegMsg
+            'message' => $RegMsg,
+            'login' => $logins
         ];
 
         return $responseData;
