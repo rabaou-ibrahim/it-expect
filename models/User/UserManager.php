@@ -24,7 +24,7 @@ class UserManager extends Model{
         $query->closeCursor();
 
         foreach($myUsers as $user){
-            $u = new User($user['id'],  $user['login'], $user['lastname'], $user['firstname'], $user['password']);
+            $u = new User($user['id'], $user['lastname'], $user['firstname'],  $user['login'], $user['password']);
             $this->addUser($u);
         }
     }
