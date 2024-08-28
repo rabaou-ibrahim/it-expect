@@ -1,1 +1,1 @@
-{"version":1,"defects":{"SignupTest::testIsNotTakenLogin":8,"SignupTest::testIsTakenLogin":8,"SignupTest::testRegisterValidation":7},"times":{"SignupTest::testIsNotTakenLogin":0.002,"SignupTest::testIsTakenLogin":0,"SignupTest::testRegisterValidation":0.007}}
+{"version":1,"defects":{"SignupTest::testIsNotTakenLogin":8,"SignupTest::testIsTakenLogin":8,"SignupTest::testRegisterValidation":7},"times":{"SignupTest::testIsNotTakenLogin":0.003,"SignupTest::testIsTakenLogin":0,"SignupTest::testRegisterValidation":0.006}}

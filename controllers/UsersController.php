@@ -46,13 +46,11 @@ class UsersController
             $responseData = [
                 'success' => true,
                 'message' => "Inscription réussie !",
-                'response' => $response['login']
             ];
         } else {
             $responseData = [
                 'success' => false,
                 'message' => $response['message'],
-                'response' => $response['login']
             ];
         }
         header('Content-Type: application/json');
@@ -95,7 +93,6 @@ class UsersController
         $responseData = [
             'success' => !$isLoginTaken,
             'message' => $RegMsg,
-            'login' => $logins
         ];
 
         return $responseData;
