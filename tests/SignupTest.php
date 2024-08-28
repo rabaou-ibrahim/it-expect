@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 require './controllers/UsersController.php';
+require_once '/wamp64/www/it-expect/models/Model.php';
 
 use PHPUnit\Framework\TestCase;
 use function PHPUnit\Framework\assertEquals;
@@ -14,6 +15,14 @@ class SignupTest extends TestCase
     protected function setUp(): void
     {
         self::$cntrl = new UsersController;
+    }
+
+    protected function tearDown(): void
+    {
+        $um= new UserManager;
+        $login='BABAR';
+        $um->deleteUser($login);
+            
     }
 
     public function testIsNotTakenLogin(): void
