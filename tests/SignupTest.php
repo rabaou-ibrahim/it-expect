@@ -4,9 +4,12 @@ declare(strict_types=1);
 require './controllers/UsersController.php';
 require_once '/wamp64/www/it-expect/models/Model.php';
 
+use PHPUnit\Framework\Attributes\AfterClass;
 use PHPUnit\Framework\TestCase;
 use function PHPUnit\Framework\assertEquals;
+use function PHPUnit\Framework\assertFalse;
 use function PHPUnit\Framework\assertSame;
+use function PHPUnit\Framework\assertTrue;
 
 class SignupTest extends TestCase
 {
@@ -16,14 +19,15 @@ class SignupTest extends TestCase
     {
         self::$cntrl = new UsersController;
     }
-
-    protected function tearDown(): void
+    public static function tearDownAfterClass(): void
     {
         $um= new UserManager;
         $login='BABAR';
         $um->deleteUser($login);
             
     }
+
+
 
     public function testIsNotTakenLogin(): void
     {
@@ -40,7 +44,7 @@ class SignupTest extends TestCase
     }
 
 
-    public function testRegisterValidation()
+    public function testRegisterValidationNew()
     {
         $_POST['login'] = 'BABAR';
         $_POST['firstname'] = 'elephant';
@@ -48,5 +52,18 @@ class SignupTest extends TestCase
         $_POST['password'] = 'bobo';
 
         assertSame(true,  self::$cntrl->registerValidation(), 'inscription NOK');
+    }
+    public function testRegisterValidationIfExist()
+    {
+        $_POST['login'] = 'BABAR';
+        $_POST['firstname'] = 'elephant';
+        $_POST['lastname'] = 'eau';
+        $_POST['password'] = 'bobo';
+        for($i=0;$i<1;$i++){
+           $result = self::$cntrl->registerValidation(); 
+        }
+             assertFalse($result , 'inscription OK');
+        
+        
     }
 }
