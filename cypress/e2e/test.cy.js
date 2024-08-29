@@ -1,10 +1,12 @@
 /// <reference types="cypress" />
 
-describe('Password tests', () => {
+describe('Password tests & Subscription', () => {
   let datas = [
     {message:'Creating a new user without password', login: 'monLogin1', firstname: 'firstname1', lastname: 'lastname1', password: '',subtitle:'Les champs doivent être remplis' },
     {message:'Creating a new user without uppercase', login: 'monLogin1', firstname: 'firstname1', lastname: 'lastname1', password: 'password1',subtitle:'Le mot de passe doit avoir une majuscule' },
-    {message:'Creting a new user with password error casse', login: 'monLogin2', firstname: 'firstname2', lastname: 'lastname2', password: 'Passwor',subtitle:'Le mot de passe doit faire plus de 8 caractères' }
+    {message:'Creting a new user with password error casse', login: 'monLogin2', firstname: 'firstname2', lastname: 'lastname2', password: 'Passwor',subtitle:'Le mot de passe doit faire plus de 8 caractères' },
+    {message:'Creating a new user9', login: 'monLogin9', firstname: 'firstname8', lastname: 'lastname8', password: 'testTEST.',subtitle:'Inscription réussie !' },
+    {message:'Creating a new user9', login: 'monLogin9', firstname: 'firstname8', lastname: 'lastname8', password: 'testTEST.',subtitle:'Pseudo déjà pris' }
   ];
   datas.forEach((data)=> {
    it(data.message, () => {
@@ -39,8 +41,12 @@ describe('Password tests', () => {
 
       cy.get('.submit').click();
 
-      cy.get('#subtitle')
-        .should('contain', data.subtitle);
+      if (data.subtitle === "Inscription réussie !"){
+        cy.url().should('include', 'user/l')
+      } else {
+        cy.get('#subtitle')
+          .should('contain', data.subtitle);  
+      }
   })
 });
 })
