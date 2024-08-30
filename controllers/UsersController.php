@@ -168,4 +168,11 @@ class UsersController
         session_destroy();
         header("location: " . URL . "home");
     }
+    
+    //Delete a User
+    public function deleteUser($login)
+    {
+        $this->userManager->deleteUser($login);
+        
+    }
 }

@@ -21,24 +21,27 @@ try {
                 require "views/home.view.php";
                 break;
 
-            case "user";
-                if (empty($url[1])) {
-                    $userController->displayLogin();
-                } else if ($url[1] === "l") {
-                    $userController->displayLogin();
-                } else if ($url[1] === "r") {
-                    $userController->displayRegister();
-                } else if ($url[1] === "rv") {
-                    $userController->registerValidation();
-                } else if ($url[1] === "lv") {
-                    $userController->logInValidation();
-                } else if ($url[1] === "p") {
-                    $userController->displayProjects();
-                } else if ($url[1] === "lo") {
-                    $userController->logOut();
-                } else {
-                    echo ("La page n'existe pas");
-                }
+                case "user";
+                    if(empty($url[1])){
+                        $userController->displayLogin();
+                    } else if($url[1] === "l"){
+                        $userController->displayLogin();                        
+                    } else if($url[1] === "r"){
+                        $userController->displayRegister();
+                    } else if($url[1] === "rv"){
+                        $userController->registerValidation();
+                    } else if($url[1] === "lv"){
+                        $userController->logInValidation();
+                    } else if($url[1] === "p"){
+                        $userController->displayProjects();
+                    } else if($url[1] === "lo"){
+                        $userController->logOut();
+                    } else if($url[1] === "d"){
+                        $userController->deleteUser($url[2]);
+                    }
+                    else {
+                        echo("La page n'existe pas");
+                    }
 
             case "project";
                 if (empty($url[1])) {
