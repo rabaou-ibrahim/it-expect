@@ -24,7 +24,7 @@ class UserManager extends Model{
         $query->closeCursor();
 
         foreach($myUsers as $user){
-            $u = new User($user['id'],  $user['login'], $user['lastname'], $user['firstname'], $user['password']);
+            $u = new User($user['id'], $user['lastname'], $user['firstname'],  $user['login'], $user['password']);
             $this->addUser($u);
         }
     }
@@ -46,6 +46,14 @@ class UserManager extends Model{
             }
         }
         return null; 
+    }
+
+    public function deleteUser($login) {
+        $query = "DELETE FROM USER WHERE LOGIN= :login";
+
+        $stmt = $this->getDb()->prepare($query); 
+        $stmt->bindValue(":login", $login, PDO::PARAM_STR);
+        $result = $stmt->execute(); 
     }
 
     // Function that registers a new user in our database
