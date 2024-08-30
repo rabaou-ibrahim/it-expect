@@ -1,7 +1,6 @@
 /// <reference types="cypress" />
 
-describe("Password tests", () => {
-describe("Password tests & Subscription", () => {
+describe('Password tests & Subscription', () => {
   let datas = [
     {
       message: "Creating a new user without password",
@@ -92,71 +91,67 @@ describe("Password tests & Subscription", () => {
       subtitle: "Les champs doivent être remplis",
     },
   ];
-  datas.forEach((data) => {
-    it(data.message, () => {
-      // Cypress starts out with a blank slate for each test
-      // so we must tell it to visit our website with the `cy.visit()` command.
-      // Since we want to visit the same URL at the start of all our tests,
-      // we include it in our beforeEach function so that it runs before each test
+  datas.forEach((data)=> {
+   it(data.message, () => {
+    // Cypress starts out with a blank slate for each test
+    // so we must tell it to visit our website with the `cy.visit()` command.
+    // Since we want to visit the same URL at the start of all our tests,
+    // we include it in our beforeEach function so that it runs before each test
+    cy.visit('http://localhost/it-expect/user/r')
 
-      cy.visit("http://localhost/it-expect/user/r");
-      if (data.login) {
-        cy.get("#login") // Sélection par ID
-          .type(data.login)
-          .should("have.value", data.login);
-      } else {
-        cy.get("#login").should("have.value", "");
-      }
+    if (data.login) {
+      cy.get("#login") // Sélection par ID
+        .type(data.login)
+        .should("have.value", data.login);
+    } else {
+      cy.get("#login").should("have.value", "");
+    }
 
-      if (data.firstname) {
-        cy.get("#firstname") // Sélection par ID
-          .type(data.firstname)
-          .should("have.value", data.firstname);
-      } else {
-        cy.get("#firstname").should("have.value", "");
-      }
+    if (data.firstname) {
+      cy.get("#firstname") // Sélection par ID
+        .type(data.firstname)
+        .should("have.value", data.firstname);
+    } else {
+      cy.get("#firstname").should("have.value", "");
+    }
 
-      if (data.lastname) {
-      cy.get("#lastname") // Sélection par ID
-        .type(data.lastname)
-        .should("have.value", data.lastname);
-      } else {
-        cy.get("#lastname").should("have.value", "");
-      }
+    if (data.lastname) {
+    cy.get("#lastname") // Sélection par ID
+      .type(data.lastname)
+      .should("have.value", data.lastname);
+    } else {
+      cy.get("#lastname").should("have.value", "");
+    }
 
-      if (data.password) {
-        cy.get("#password")
+      if (data.password){
+        cy.get('#password')
           .type(data.password)
-          .should("have.value", data.password);
-          .should("have.value", data.password);
+          .should('have.value', data.password);
       } else {
-        cy.get("#password").should("have.value", "");
+        cy.get('#password')
+        .should('have.value', '');
+
       }
+      
 
-      cy.get(".submit").click();
+      cy.get('.submit').click();
 
-      cy.get("#subtitle").should("contain", data.subtitle);
-    });
-        cy.get("#password").should("have.value", "");
-      }
-
-      cy.get(".submit").click();
-
-      if (data.subtitle === "Inscription réussie !") {
-        cy.url().should("include", "user/l");
+      if (data.subtitle === "Inscription réussie !"){
+        cy.url().should('include', 'user/l')
       } else {
-        cy.get("#subtitle").should("contain", data.subtitle);
+        cy.get('#subtitle')
+          .should('contain', data.subtitle);  
       }
-    });
-  });
-
-  it("should send a GET request with query parameters and verify response", () => {
-    cy.request({
-      method: "GET",
-      url: "http://localhost/it-expect/user/d/monLogin9",
-    }).then((response) => {
-      // Vérifications de la réponse
-      expect(response.status).to.eq(200); // Vérifier que le statut HTTP est 200 (OK)
-    });
+  })
+});
+it("should send a GET request with query parameters and verify response", () => {
+  cy.request({
+    method: "GET",
+    url: "http://localhost/it-expect/user/d/monLogin9",
+  }).then((response) => {
+    // Vérifications de la réponse
+    expect(response.status).to.eq(200); // Vérifier que le statut HTTP est 200 (OK)
   });
 });
+})
+
