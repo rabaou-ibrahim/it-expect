@@ -39,6 +39,19 @@ describe("SignIn Tests", () => {
       cy.get("form > button").should("contain", "Se Connecter");
     });
   });
+  //créer un user fictif pour les tests
+  it("Create false user", () => {
+    cy.visit("http://localhost/it-expect/user/r");
+    cy.get("#login") // Sélection par ID
+      .type("Login9");
+    cy.get("#firstname") // Sélection par ID
+      .type("Login9");
+    cy.get("#lastname") // Sélection par ID
+      .type("Login9");
+    cy.get("#password").type("P@ssword");
+    cy.get(".submit").click();
+  });
+
   datas.forEach((data) => {
     it(data.message, () => {
       cy.visit("http://localhost/it-expect/user/l");
@@ -58,11 +71,22 @@ describe("SignIn Tests", () => {
       cy.get("#subtitle").should("contain", data.subtitle);
     });
   });
+
   it("Connexion form success", () => {
     cy.visit("http://localhost/it-expect/user/l");
     cy.get("#login").type("Login9");
     cy.get("#password").type("P@ssword");
     cy.get("form button").contains("Se Connecter").click();
     cy.get("form").should("contain", "Ajouter projet");
+  });
+
+  it("Clear false User in DB", () => {
+    cy.request({
+      method: "GET",
+      url: "http://localhost/it-expect/user/d/Login9",
+    }).then((response) => {
+      // Vérifications de la réponse
+      expect(response.status).to.eq(200); // Vérifier que le statut HTTP est 200 (OK)
+    });
   });
 });
