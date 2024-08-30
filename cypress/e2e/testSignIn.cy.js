@@ -24,7 +24,6 @@ describe("SignIn Tests", () => {
       password: "P@sswor",
       subtitle: "Mot de passe incorrect",
     },
-   
   ];
 
   it("Load Home Page", () => {
@@ -40,8 +39,8 @@ describe("SignIn Tests", () => {
       cy.get("form > button").should("contain", "Se Connecter");
     });
   });
-  it("Connexion form tests", () => {
-    datas.forEach((data) => {
+  datas.forEach((data) => {
+    it(data.message, () => {
       cy.visit("http://localhost/it-expect/user/l");
       if (data.login) {
         cy.get("#login").type(data.login).should("have.value", data.login);
@@ -60,18 +59,10 @@ describe("SignIn Tests", () => {
     });
   });
   it("Connexion form success", () => {
-    // {
-    //     message: "Connect user with wrong password",
-    //     login: "Login9",
-    //     password: "P@ssword",
-    //     subtitle: "Connexion établie !",
-    //   },
     cy.visit("http://localhost/it-expect/user/l");
-      cy.get("#login").type('Login9');
-      cy.get("#password")
-        .type('P@ssword')
+    cy.get("#login").type("Login9");
+    cy.get("#password").type("P@ssword");
     cy.get("form button").contains("Se Connecter").click();
-    cy.get("form").should("contain", 'Ajouter projet');
-
+    cy.get("form").should("contain", "Ajouter projet");
   });
 });
