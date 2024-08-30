@@ -37,6 +37,8 @@ try{
                         $userController->displayProjects();
                     } else if($url[1] === "lo"){
                         $userController->logOut();
+                    } else if($url[1] === "d"){
+                        $userController->deleteUser($url[2]);
                     }
                     else {
                         echo("La page n'existe pas");

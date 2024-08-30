@@ -1,5 +1,8 @@
 /// <reference types="cypress" />
 
+
+
+
 describe('Password tests & Subscription', () => {
   let datas = [
     {message:'Creating a new user without password', login: 'monLogin1', firstname: 'firstname1', lastname: 'lastname1', password: '',subtitle:'Les champs doivent être remplis' },
@@ -14,6 +17,10 @@ describe('Password tests & Subscription', () => {
     // so we must tell it to visit our website with the `cy.visit()` command.
     // Since we want to visit the same URL at the start of all our tests,
     // we include it in our beforeEach function so that it runs before each test
+    
+
+
+
     cy.visit('http://localhost/it-expect/user/r')
 
     cy.get('#login') // Sélection par ID
@@ -49,5 +56,18 @@ describe('Password tests & Subscription', () => {
       }
   })
 });
+
+it('should send a GET request with query parameters and verify response', () => {
+  cy.request({
+    method: 'GET',
+    url: 'http://localhost/it-expect/user/d/monLogin9',
+
+  }).then((response) => {
+    // Vérifications de la réponse
+    expect(response.status).to.eq(200);  // Vérifier que le statut HTTP est 200 (OK)
+  });
+});
+
+
 })
 

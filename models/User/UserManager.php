@@ -48,6 +48,14 @@ class UserManager extends Model{
         return null; 
     }
 
+    public function deleteUser($login) {
+        $query = "DELETE FROM USER WHERE LOGIN= :login";
+
+        $stmt = $this->getDb()->prepare($query); 
+        $stmt->bindValue(":login", $login, PDO::PARAM_STR);
+        $result = $stmt->execute(); 
+    }
+
     // Function that registers a new user in our database
     public function registerDb($login, $lastname, $firstname, $password){
         $query = "INSERT INTO user (login, lastname, firstname, password) values (:login, :lastname, :firstname, :password)";
