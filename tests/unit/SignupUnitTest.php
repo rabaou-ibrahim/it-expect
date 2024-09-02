@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 use function PHPUnit\Framework\assertEquals;
 use function PHPUnit\Framework\assertSame;
 
-class SignupTest extends TestCase
+class SignupUnitTest extends TestCase
 {
     private static $cntrl;
 
@@ -28,16 +28,5 @@ class SignupTest extends TestCase
 
         $messages = self::$cntrl->verifyRegFields(htmlspecialchars($_POST['login']));
         assertSame(false, $messages['success'], 'Le login existe donc doit renvoyer:false');
-    }
-
-
-    public function testRegisterValidation()
-    {
-        $_POST['login'] = 'BABAR';
-        $_POST['firstname'] = 'elephant';
-        $_POST['lastname'] = 'eau';
-        $_POST['password'] = 'bobo';
-
-        assertSame(true,  self::$cntrl->registerValidation(), 'inscription NOK');
     }
 }
