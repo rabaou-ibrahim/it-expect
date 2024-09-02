@@ -19,7 +19,7 @@ describe('Password tests & Subscription', () => {
       subtitle: "Le mot de passe doit avoir une majuscule",
     },
     {
-      message: "Creting a new user with password error casse",
+      message: "Creating a new user with password error casse",
       login: "monLogin2",
       firstname: "firstname2",
       lastname: "lastname2",
