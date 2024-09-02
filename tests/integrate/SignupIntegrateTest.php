@@ -9,6 +9,19 @@ use function PHPUnit\Framework\assertSame;
 
 class SignupIntegrateTest extends TestCase
 {
+    private static $cntrl;
+
+    protected function setUp(): void
+
+    {
+        self::$cntrl = new UsersController;
+    }
+
+    public static function tearDownAfterClass(): void
+    {
+        $um= new UserManager;
+        $um-> deleteUser('BABAR');
+    }
     public function testRegisterValidation()
         {
             $_POST['login'] = 'BABAR';
@@ -16,6 +29,6 @@ class SignupIntegrateTest extends TestCase
             $_POST['lastname'] = 'eau';
             $_POST['password'] = 'bobo';
 
-            assertSame(true,  self::$cntrl->registerValidation(), 'inscription NOK');
+            assertSame(true,  self::$cntrl->registerValidation(), 'inscription OK');
         }
 }
