@@ -43,12 +43,12 @@ describe('Password tests & Subscription', () => {
       subtitle: "Le mot de passe doit avoir une majuscule",
     },
     {
-      message: "Creting a new user with password error casse",
+      message: "Creating a new user with password without special character",
       login: "monLogin2",
       firstname: "firstname2",
       lastname: "lastname2",
-      password: "Passwor",
-      subtitle: "Le mot de passe doit faire plus de 8 caractères",
+      password: "Password",
+      subtitle: "Le mot de passe doit avoir un caractère spécial",
     },
     {
       message: "Creating a new user9",
@@ -59,7 +59,7 @@ describe('Password tests & Subscription', () => {
       subtitle: "Inscription réussie !",
     },
     {
-      message: "Creating a new user9",
+      message: "Recreating a new user9",
       login: "monLogin9",
       firstname: "firstname8",
       lastname: "lastname8",
