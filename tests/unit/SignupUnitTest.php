@@ -4,7 +4,7 @@ declare(strict_types=1);
 require './controllers/UsersController.php';
 
 use PHPUnit\Framework\TestCase;
-use function PHPUnit\Framework\assertEquals;
+
 use function PHPUnit\Framework\assertSame;
 
 class SignupUnitTest extends TestCase
